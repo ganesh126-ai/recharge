@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/recharge', async (req, res) => {
+app.post('/', async (req, res) => {
 
   const { stbNumber } = req.body;
 
