@@ -10,7 +10,7 @@ app.post('/recharge', async (req, res) => {
   const { stbNumber } = req.body;
 
   if (!stbNumber || stbNumber.trim() === '') {
-
+    
     console.log("Invalid STB Number");
 
     return res.status(400).json({
