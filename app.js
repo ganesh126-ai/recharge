@@ -35,7 +35,7 @@ app.post('/rec', async (req, res) => {
   const result = await recharge(stbNumber);
 
   res.json(result);
-  res.send("success");
+  
 
 });
 
