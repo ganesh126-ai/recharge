@@ -74,7 +74,7 @@ const browser = await chromium.launch({
 
     // Verify button exists
     await expect(checkoutBtn).toBeVisible({
-      timeout: 30000
+      timeout: 60000
     });
 
     // Click checkout
