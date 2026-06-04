@@ -1,11 +1,22 @@
 const express = require('express');
 const recharge = require('./recharge');
+const path = require('path');
 
 const app = express();
 
-app.use(express.json());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-app.post('/', async (req, res) => {
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+;
+
+app.get('/recharge',(req,res) => {
+  res.render("index");
+})
+
+
+app.post('/rec', async (req, res) => {
 
   const { stbNumber } = req.body;
 
@@ -24,6 +35,7 @@ app.post('/', async (req, res) => {
   const result = await recharge(stbNumber);
 
   res.json(result);
+  res.send("success");
 
 });
 

@@ -39,6 +39,11 @@ const browser = await chromium.launch({
       name: 'Enter Customer Id / Serial'
     }).fill(stbNumber);
 
+       await page.screenshot({
+      path: 'before-checkout.png',
+      fullPage: true
+    });
+
     await page.getByRole('button', { name: 'SEARCH' }).click();
 
     // Wait for search results
@@ -57,10 +62,10 @@ const browser = await chromium.launch({
     console.log('Buttons on page:', buttons);
 
     // Take screenshot
-    await page.screenshot({
-      path: 'before-checkout.png',
-      fullPage: true
-    });
+    // await page.screenshot({
+    //   path: 'before-checkout.png',
+    //   fullPage: true
+    // });
 
     // Locate checkout button
     const checkoutBtn = page.getByRole('button', {
